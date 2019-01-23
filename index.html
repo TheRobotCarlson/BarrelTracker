@@ -63,7 +63,7 @@ layout: default
       </span >
 	  {% assign wordCount = post.content | number_of_words %}
 	  {% assign totalWordCount = totalWordCount + wordCount %}
-		<span class="article__date"> Word count: {{wordCount}}</span>
+		<span class="article__date"> &nbsp; &nbsp; Word count: {{wordCount}}</span>
       <!-- Article continue reading button -->
       <a class="article__button" href="{{ site.baseurl }}{{ post.url }}">{% if site.lang == "tr" %}DEVAMINI OKU{% else %}CONTINUE READING{% endif %}</a>
 
