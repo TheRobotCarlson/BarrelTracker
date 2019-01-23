@@ -10,7 +10,7 @@ locale: en_US
 paginate: 10
 highlighter: rouge
 markdown: kramdown
-plugins: [jekyll-paginate]
+plugins: [jekyll-paginate, posts-word-count]
 timezone: America/New_York
 paginateLabel: page
 paginate_path: "page/:num"
