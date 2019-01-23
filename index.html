@@ -59,7 +59,8 @@ layout: default
           {{ post.date | date_to_long_string | upcase }}
         {% endif %}
       </span>
-		
+		{% assign wordCount = post.content | number_of_words %}
+		Word count: {{wordCount}}
       <!-- Article continue reading button -->
       <a class="article__button" href="{{ site.baseurl }}{{ post.url }}">{% if site.lang == "tr" %}DEVAMINI OKU{% else %}CONTINUE READING{% endif %}</a>
 
