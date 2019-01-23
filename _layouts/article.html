@@ -35,7 +35,7 @@ layout: default
 
   <!-- Article description -->
   <section>{{ page.content }}</section>
-	<p>This post is {{ content | count_words }} words long. It'll take you {{ content | count_seconds }} seconds to read it.</p>
+	<p>This post is {{ page.content | count_words }} words long. It'll take you {{ page.content | count_seconds }} seconds to read it.</p>
 
 </article><!-- article -->
 
