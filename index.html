@@ -10,6 +10,8 @@ layout: default
 
 {% endif %}
 
+{% assign totalWordCount = 0 %}
+
 <!-- Loop for posts by paginator -->
 {% for post in paginator.posts %}
 
@@ -60,6 +62,7 @@ layout: default
         {% endif %}
       </span >
 	  {% assign wordCount = post.content | number_of_words %}
+	  {% totalWordCount += wordCount %}
 		<span class="article_date"> Word count: {{wordCount}}</span>
       <!-- Article continue reading button -->
       <a class="article__button" href="{{ site.baseurl }}{{ post.url }}">{% if site.lang == "tr" %}DEVAMINI OKU{% else %}CONTINUE READING{% endif %}</a>
@@ -70,5 +73,6 @@ layout: default
 
 {% endfor %}
 
+<p>Total Word Count: {{totalWordCount}}</p>
 <!-- Include pagination bar -->
 {% include pagination.html section="bottom" %}
