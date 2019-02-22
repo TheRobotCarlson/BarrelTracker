@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 ---
 ---
 layout: article
@@ -25,4 +25,3 @@ Our ERP system would need to be:
     1. Barrel warehouse placement
 
 1. Expandable - Our system would need to be expandable for features to be added later. Other systems may need to interact with our system. This necessitates our system having an API.
-
