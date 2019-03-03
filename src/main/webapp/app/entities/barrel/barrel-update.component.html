@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-barrel-heading">Create or edit a Barrel</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!barrel.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="barrel.id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_lot">Lot</label>
+                    <select class="form-control" id="field_lot" name="lot" [(ngModel)]="barrel.lot" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="lotOption.id === barrel.lot?.id ? barrel.lot : lotOption" *ngFor="let lotOption of lots; trackBy: trackLotById">{{lotOption.lotName}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_customer">Customer</label>
+                    <select class="form-control" id="field_customer" name="customer" [(ngModel)]="barrel.customer" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="customerOption.id === barrel.customer?.id ? barrel.customer : customerOption" *ngFor="let customerOption of customers; trackBy: trackCustomerById">{{customerOption.customerName}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_batch">Batch</label>
+                    <select class="form-control" id="field_batch" name="batch" [(ngModel)]="barrel.batch" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="batchOption.id === barrel.batch?.id ? barrel.batch : batchOption" *ngFor="let batchOption of batches; trackBy: trackBatchById">{{batchOption.batchName}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+{
+    "name": "MashbillYeast",
+    "fields": [
+        {
+            "fieldName": "quantity",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "min"
+            ],
+            "fieldValidateRulesMin": 0
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "yeast",
+            "otherEntityName": "yeast",
+            "otherEntityField": "yeastCode"
+        },
+        {
+            "relationshipName": "mashbill",
+            "otherEntityName": "mashbill",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190303183754",
+    "entityTableName": "mashbill_yeast",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,34 @@
+{
+    "name": "Lot",
+    "fields": [
+        {
+            "fieldName": "barrelCapacity",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "lotName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "location",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "barrel",
+            "otherEntityName": "barrel",
+            "otherEntityRelationshipName": "lot"
+        }
+    ],
+    "changelogDate": "20190303183800",
+    "entityTableName": "lot",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

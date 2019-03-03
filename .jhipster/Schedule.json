@@ -1,0 +1,42 @@
+{
+    "name": "Schedule",
+    "fields": [
+        {
+            "fieldName": "targetBarrelQuantity",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "date",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "batch",
+            "otherEntityName": "batch",
+            "otherEntityRelationshipName": "schedule"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "mashbill",
+            "otherEntityName": "mashbill",
+            "otherEntityField": "mashbillName"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "customer",
+            "otherEntityName": "customer",
+            "otherEntityField": "customerName"
+        }
+    ],
+    "changelogDate": "20190303183759",
+    "entityTableName": "schedule",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

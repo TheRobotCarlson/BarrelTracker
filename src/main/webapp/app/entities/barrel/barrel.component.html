@@ -1,0 +1,70 @@
+<div>
+    <h2 id="page-heading">
+        <span>Barrels</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-barrel" [routerLink]="['/barrel/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Barrel
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="barrels">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Lot</span></th>
+            <th><span>Customer</span></th>
+            <th><span>Batch</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let barrel of barrels ;trackBy: trackId">
+                <td><a [routerLink]="['/barrel', barrel.id, 'view' ]">{{barrel.id}}</a></td>
+                <td>
+                    <div *ngIf="barrel.lot">
+                        <a [routerLink]="['../lot', barrel.lot?.id, 'view' ]" >{{barrel.lot?.lotName}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="barrel.customer">
+                        <a [routerLink]="['../customer', barrel.customer?.id, 'view' ]" >{{barrel.customer?.customerName}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="barrel.batch">
+                        <a [routerLink]="['../batch', barrel.batch?.id, 'view' ]" >{{barrel.batch?.batchName}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/barrel', barrel.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/barrel', barrel.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'barrel/'+ barrel.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

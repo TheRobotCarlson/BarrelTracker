@@ -1,0 +1,36 @@
+{
+    "name": "MashbillGrain",
+    "fields": [
+        {
+            "fieldName": "quantity",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "min"
+            ],
+            "fieldValidateRulesMin": 0
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "grain",
+            "otherEntityName": "grain",
+            "otherEntityField": "grainName"
+        },
+        {
+            "relationshipName": "mashbill",
+            "otherEntityName": "mashbill",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190303183753",
+    "entityTableName": "mashbill_grain",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

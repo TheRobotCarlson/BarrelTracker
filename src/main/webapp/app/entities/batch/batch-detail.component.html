@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="batch">
+            <h2><span>Batch</span> {{batch.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Proof</span></dt>
+                <dd>
+                    <span>{{batch.proof}}</span>
+                </dd>
+                <dt><span>Date</span></dt>
+                <dd>
+                    <span>{{batch.date}}</span>
+                </dd>
+                <dt><span>Batch Name</span></dt>
+                <dd>
+                    <span>{{batch.batchName}}</span>
+                </dd>
+                <dt><span>Mashbill</span></dt>
+                <dd>
+                    <div *ngIf="batch.mashbill">
+                        <a [routerLink]="['/mashbill', batch.mashbill?.id, 'view']">{{batch.mashbill?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Schedule</span></dt>
+                <dd>
+                    <div *ngIf="batch.schedule">
+                        <a [routerLink]="['/schedule', batch.schedule?.id, 'view']">{{batch.schedule?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/batch', batch.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

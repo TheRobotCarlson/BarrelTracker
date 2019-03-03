@@ -1,0 +1,22 @@
+{
+    "name": "Grain",
+    "fields": [
+        {
+            "fieldName": "grainName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190303183751",
+    "entityTableName": "grain",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

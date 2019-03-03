@@ -1,0 +1,46 @@
+{
+    "name": "Mashbill",
+    "fields": [
+        {
+            "fieldName": "mashbillName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "mashbillCode",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "mashbillNotes",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "mashbillGrain",
+            "otherEntityName": "mashbillGrain",
+            "otherEntityRelationshipName": "mashbill"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "mashbillYeast",
+            "otherEntityName": "mashbillYeast",
+            "otherEntityRelationshipName": "mashbill"
+        }
+    ],
+    "changelogDate": "20190303183755",
+    "entityTableName": "mashbill",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

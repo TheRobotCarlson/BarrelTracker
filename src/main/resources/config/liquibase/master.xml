@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190303183751_added_entity_Grain.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190303183752_added_entity_Yeast.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190303183753_added_entity_MashbillGrain.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190303183754_added_entity_MashbillYeast.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190303183755_added_entity_Mashbill.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190303183756_added_entity_Customer.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190303183757_added_entity_Barrel.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190303183758_added_entity_Batch.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190303183759_added_entity_Schedule.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190303183800_added_entity_Lot.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20190303183753_added_entity_constraints_MashbillGrain.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190303183754_added_entity_constraints_MashbillYeast.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190303183757_added_entity_constraints_Barrel.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190303183758_added_entity_constraints_Batch.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190303183759_added_entity_constraints_Schedule.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+</databaseChangeLog>

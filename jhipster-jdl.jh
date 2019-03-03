@@ -1,0 +1,80 @@
+entity Grain {
+	grainName String required
+}
+
+entity Yeast {
+	yeastName String required,
+    yeastCode String required
+}
+
+entity MashbillGrain {
+	quantity Double min(0)
+}
+
+entity MashbillYeast {
+	quantity Double min(0)
+}
+
+entity Mashbill {
+	mashbillName String required,
+    mashbillCode String required,
+    mashbillNotes String
+}
+
+entity Customer {
+	customerName String required
+}
+
+entity Barrel 
+
+entity Batch {
+	proof Integer required,
+    date ZonedDateTime required,
+    batchName String required
+}
+
+// Count of barrels of batch gives actual count
+entity Schedule {
+	targetBarrelQuantity Integer,
+    date ZonedDateTime
+}
+
+entity Lot {
+	barrelCapacity Integer,
+    lotName String,
+    location String
+}
+
+relationship ManyToOne {
+	Batch{mashbill} to Mashbill,
+    Schedule{mashbill(mashbillName)} to Mashbill,
+    Schedule{customer(customerName)} to Customer,
+    MashbillGrain{grain(grainName)} to Grain,
+    MashbillYeast{yeast(yeastCode)} to Yeast,
+    Barrel{lot(lotName)} to Lot{barrel},
+    Barrel{customer(customerName)} to Customer{barrel},
+    Barrel{batch(batchName)} to Batch{barrel}
+}
+relationship OneToMany {
+	Mashbill{mashbillGrain} to MashbillGrain,
+    Mashbill{mashbillYeast} to MashbillYeast,
+    Schedule{batch} to Batch
+}
+//  Batch{barrel} to Barrel{batch(batchName)},
+//  Customer{barrel} to Barrel{customer(customerName)},
+//	Lot{barrel} to Barrel{lot(lotName)}
+
+
+
+// Set pagination options
+// paginate JobHistory, Employee with infinite-scroll
+// paginate Job with pagination
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+// service all with serviceImpl except Employee, Job
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

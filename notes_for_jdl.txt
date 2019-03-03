@@ -1,0 +1,141 @@
+Pages:
+Master Summary - per month - DATA ENTRY
+YEAST Summary - per month - driven off master summary
+Prod Summary  - driven off master summary
+Grain Forecast - per month  - driven off master summary
+Mashbill - Grain, Yeast and what we're using it for  - driven off master summary
+ 
+Tables:
+
+ 
+Customer
+CustomerID (PK UUID)
+CustomerName (string)
+ 
+Param
+PG field calculation formula
+More fields TBD
+ 
+Schedule
+ScheduleID (PK UUID)
+CustomerID (UUID)
+MashbillID (int)
+TargetBarrelQty (int)
+ActualBarrelQty (int)
+Proof (int)
+Date (datetime) ZonedDateTime
+
+ 
+Pallet
+PalletID (PK UUID)
+PalletTypeID
+ 
+PalletType - (config)
+PalletTypeID (int)
+PalletTypeName (string)
+ 
+Lot - more TBD
+LotID (PK TBD)
+CustomerID
+Proof
+NumBarrels
+
+
+Yeast - (config)
+YeastID (PK int)
+YeastName (string)
+YeastCode (string)
+ 
+Grain - (config)
+GrainID (PK int)
+GrainName (string)
+
+Mashbill - (config)
+MashbillID (PK int)
+MashbillName (string)
+MashbillCode (string)
+
+MashbillGrain - holds all the ingredients (grain) per mashbill
+MashbillID (PK int)
+GrainID (PK int) 
+QTY (percent of 100 of the grain type) 
+
+
+entity Grain {
+	grainName String required
+}
+
+entity Yeast {
+	yeastName String required,
+    yeastCode String required
+}
+
+entity MashbillGrain {
+	quantity Double min(0)
+}
+
+entity MashbillYeast {
+	quantity Double min(0)
+}
+
+entity Mashbill {
+	mashbillName String required,
+    mashbillCode String required,
+    mashbillNotes String
+}
+
+entity Customer {
+	customerName String required
+}
+
+entity Barrel 
+
+entity Batch {
+	proof Integer required,
+    date ZonedDateTime required
+}
+
+// Count of barrels of batch gives actual count
+entity Schedule {
+	targetBarrelQuantity Integer,
+    date ZonedDateTime
+}
+
+entity LotBarrels {
+
+}
+
+entity Lot {
+	barrelCapacity Integer,
+    name String,
+}
+
+relationship ManyToOne {
+	Batch{mashbill} to Mashbill,
+    Schedule{mashbill} to Mashbill,
+    Schedule{customer} to Customer,
+    MashbillGrain{grain(grainName)} to Grain,
+    MashbillYeast{yeast(yeastCode)} to Yeast
+}
+relationship OneToMany {
+	Mashbill{mashbillGrain} to MashbillGrain,
+    Mashbill{mashbillYeast} to MashbillYeast,
+    Schedule{batch} to Batch,
+    Batch{barrel} to Barrel,
+}
+
+
+
+
+// Set pagination options
+// paginate JobHistory, Employee with infinite-scroll
+// paginate Job with pagination
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+// service all with serviceImpl except Employee, Job
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
