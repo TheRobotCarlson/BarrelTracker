@@ -44,6 +44,15 @@
         "version": "1.2.0"
       }
     ],
-    "enableTranslation": false
+    "enableTranslation": false,
+    "aws": {
+      "applicationName": "distilled",
+      "environmentName": "distilled-env",
+      "bucketName": "distilled-bucket",
+      "instanceType": "t2.micro",
+      "awsRegion": "us-east-1",
+      "dbName": "distilleddb",
+      "dbInstanceClass": "db.t2.micro"
+    }
   }
 }
