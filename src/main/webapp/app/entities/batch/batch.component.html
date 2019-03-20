@@ -31,7 +31,7 @@
                 <td>{{batch.batchName}}</td>
                 <td>
                     <div *ngIf="batch.mashbill">
-                        <a [routerLink]="['../mashbill', batch.mashbill?.id, 'view' ]" >{{batch.mashbill?.id}}</a>
+                        <a [routerLink]="['../mashbill', batch.mashbill?.id, 'view' ]" >{{batch.mashbill?.mashbillName}}</a>
                     </div>
                 </td>
                 <td>

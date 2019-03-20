@@ -57,7 +57,7 @@
                     <label class="form-control-label" for="field_mashbill">Mashbill</label>
                     <select class="form-control" id="field_mashbill" name="mashbill" [(ngModel)]="batch.mashbill" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="mashbillOption.id === batch.mashbill?.id ? batch.mashbill : mashbillOption" *ngFor="let mashbillOption of mashbills; trackBy: trackMashbillById">{{mashbillOption.id}}</option>
+                        <option [ngValue]="mashbillOption.id === batch.mashbill?.id ? batch.mashbill : mashbillOption" *ngFor="let mashbillOption of mashbills; trackBy: trackMashbillById">{{mashbillOption.mashbillName}}</option>
                     </select>
                 </div>
                 <div class="form-group">
