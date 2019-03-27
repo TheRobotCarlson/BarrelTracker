@@ -28,7 +28,7 @@
             "relationshipType": "many-to-one",
             "relationshipName": "mashbill",
             "otherEntityName": "mashbill",
-            "otherEntityField": "id"
+            "otherEntityField": "mashbillName"
         },
         {
             "relationshipType": "one-to-many",

@@ -21,7 +21,7 @@
             "relationshipName": "mashbill",
             "otherEntityName": "mashbill",
             "relationshipType": "many-to-one",
-            "otherEntityField": "id"
+            "otherEntityField": "mashbillName"
         }
     ],
     "changelogDate": "20190303183754",
