@@ -18,6 +18,55 @@
                     <span>{{mashbill.mashbillNotes}}</span>
                 </dd>
             </dl>
+            <div>
+                <h4>Mashbill Grains</h4>
+                <jhi-alert></jhi-alert>
+                <div class="table-responsive">
+                    <table class="jh-table table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Grain</th>
+                                <th>Quantity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let mbg of grains ;trackBy: trackId">
+                                <td>
+                                    <div *ngIf="mbg.grain">
+                                        <a [routerLink]="['/grain',mbg.grain?.id,'view']">{{mbg.grain?.grainName}}</a>
+                                    </div>
+                                </td>
+                                <td>{{mbg.quantity}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div>
+                    <h4>Mashbill Yeasts</h4>
+                    <jhi-alert></jhi-alert>
+                    <div class="table-responsive">
+                        <table class="jh-table table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Yeast</th>
+                                    <th>Quantity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let mby of yeasts ;trackBy: trackId">
+                                    <td>
+                                        <div *ngIf="mby.yeast">
+                                            <a [routerLink]="['/yeast',mby.yeast?.id,'view']">{{mby.yeast?.yeastName}}</a>
+                                        </div>
+                                    </td>
+                                    <td>{{mby.quantity}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
 
             <button type="submit"
                     (click)="previousState()"
@@ -31,5 +80,7 @@
                 <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
             </button>
         </div>
+
+
     </div>
 </div>

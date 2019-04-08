@@ -104,6 +104,20 @@ public class MashbillYeastResource {
     }
 
     /**
+        GET /mashbill-yeasts/mashbill: get all the yeasts belonging to a mashbill
+
+        @return the stuff and things
+    
+     */
+    @GetMapping("/mashbill-yeasts/mashbills/{id}")
+    @Timed
+    public List<MashbillYeast> getAllMashbillYeastsForMashbill(@PathVariable Long id){
+        log.debug("REST request to get all mashbill yeasts for mashbill: {}",id);
+        List<MashbillYeast> actions = mashbillYeastRepository.findByMashbillId(id);
+        return actions;
+    }
+
+    /**
      * DELETE  /mashbill-yeasts/:id : delete the "id" mashbillYeast.
      *
      * @param id the id of the mashbillYeast to delete

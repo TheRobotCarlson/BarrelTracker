@@ -103,6 +103,21 @@ public class MashbillGrainResource {
         return ResponseUtil.wrapOrNotFound(mashbillGrain);
     }
 
+
+    /**
+        GET /mashbill-grains/mashbill: get all the grains belonging to a mashbill
+
+        @return the stuff and things
+    
+     */
+    @GetMapping("/mashbill-grains/mashbills/{id}")
+    @Timed
+    public List<MashbillGrain> getAllMashbillGrainsForMashbill(@PathVariable Long id){
+        log.debug("REST request to get all mashbill grains for mashbill: {}",id);
+        List<MashbillGrain> actions = mashbillGrainRepository.findByMashbillId(id);
+        return actions;
+    }
+
     /**
      * DELETE  /mashbill-grains/:id : delete the "id" mashbillGrain.
      *

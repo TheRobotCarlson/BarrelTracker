@@ -27,6 +27,10 @@ export class MashbillGrainService {
         return this.http.get<IMashbillGrain>(`${this.resourceUrl}/${id}`, { observe: 'response' });
     }
 
+    queryByOwner(ownerId: number): Observable<IMashbillGrain[]> {
+        return this.http.get<IMashbillGrain[]>(`${this.resourceUrl}/mashbills/${ownerId}`);
+    }
+
     query(req?: any): Observable<EntityArrayResponseType> {
         const options = createRequestOption(req);
         return this.http.get<IMashbillGrain[]>(this.resourceUrl, { params: options, observe: 'response' });

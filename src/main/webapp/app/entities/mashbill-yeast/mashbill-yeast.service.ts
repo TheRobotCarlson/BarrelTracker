@@ -27,6 +27,10 @@ export class MashbillYeastService {
         return this.http.get<IMashbillYeast>(`${this.resourceUrl}/${id}`, { observe: 'response' });
     }
 
+    queryByOwner(ownerId: number): Observable<IMashbillYeast[]> {
+        return this.http.get<IMashbillYeast[]>(`${this.resourceUrl}/mashbills/${ownerId}`);
+    }
+
     query(req?: any): Observable<EntityArrayResponseType> {
         const options = createRequestOption(req);
         return this.http.get<IMashbillYeast[]>(this.resourceUrl, { params: options, observe: 'response' });
