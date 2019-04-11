@@ -27,7 +27,7 @@
 
                 <div class="form-group">
                     <label class="form-control-label" for="field_grain">Grain</label>
-                    <select class="form-control" id="field_grain" name="grain" [(ngModel)]="mashbillGrain.grain" >
+                    <select class="form-control" id="field_grain" name="graasin" [(ngModel)]="mashbillGrain.grain" >
                         <option [ngValue]="null"></option>
                         <option [ngValue]="grainOption.id === mashbillGrain.grain?.id ? mashbillGrain.grain : grainOption" *ngFor="let grainOption of grains; trackBy: trackGrainById">{{grainOption.grainName}}</option>
                     </select>

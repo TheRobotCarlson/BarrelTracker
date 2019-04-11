@@ -32,6 +32,10 @@ export class MashbillService {
         return this.http.get<IMashbill[]>(this.resourceUrl, { params: options, observe: 'response' });
     }
 
+    queryByName(name: string): Observable<IMashbill> {
+        return this.http.get<IMashbill>(`${this.resourceUrl}/mashbills/byName/${name}`);
+    }
+
     delete(id: number): Observable<HttpResponse<any>> {
         return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response' });
     }

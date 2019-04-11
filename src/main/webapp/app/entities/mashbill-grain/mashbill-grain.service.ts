@@ -16,6 +16,11 @@ export class MashbillGrainService {
     constructor(private http: HttpClient) {}
 
     create(mashbillGrain: IMashbillGrain): Observable<EntityResponseType> {
+        console.log(mashbillGrain.grain.grainName);
+        console.log(mashbillGrain.grain.id);
+        console.log(mashbillGrain.id);
+        console.log(mashbillGrain.quantity);
+        console.log(mashbillGrain.mashbill.id);
         return this.http.post<IMashbillGrain>(this.resourceUrl, mashbillGrain, { observe: 'response' });
     }
 

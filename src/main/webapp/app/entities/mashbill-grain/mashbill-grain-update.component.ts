@@ -36,6 +36,7 @@ export class MashbillGrainUpdateComponent implements OnInit {
         this.activatedRoute.data.subscribe(({ mashbillGrain }) => {
             this.mashbillGrain = mashbillGrain;
         });
+        console.log('New MashbillGrain ID: ' + this.mashbillGrain.id);
         this.grainService.query().subscribe(
             (res: HttpResponse<IGrain[]>) => {
                 this.grains = res.body;
@@ -59,6 +60,7 @@ export class MashbillGrainUpdateComponent implements OnInit {
         if (this.mashbillGrain.id !== undefined) {
             this.subscribeToSaveResponse(this.mashbillGrainService.update(this.mashbillGrain));
         } else {
+            console.log('At Save Time ID: ' + this.mashbillGrain.id);
             this.subscribeToSaveResponse(this.mashbillGrainService.create(this.mashbillGrain));
         }
     }

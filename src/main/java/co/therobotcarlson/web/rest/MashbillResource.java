@@ -101,6 +101,23 @@ public class MashbillResource {
         log.debug("REST request to get Mashbill : {}", id);
         Optional<Mashbill> mashbill = mashbillRepository.findById(id);
         return ResponseUtil.wrapOrNotFound(mashbill);
+        // Mashbill mb = mashbillRepository.findById(id);
+        // return mb;
+    }
+
+    
+    /**
+     * GET  /mashbills/:name : get the "name" mashbill.
+     *
+     * @param id the id of the mashbill to retrieve
+     * @return the ResponseEntity with status 200 (OK) and with body the mashbill, or with status 404 (Not Found)
+     */
+    @GetMapping("/mashbills/byName/{name}")
+    @Timed
+    public Mashbill getMashbillByName(@PathVariable String name){
+        log.debug("REST request to get Mashbill : {}", name);
+        Mashbill mashbill = mashbillRepository.findByMashbillName(name);
+        return mashbill;
     }
 
     /**
