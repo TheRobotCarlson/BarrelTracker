@@ -24,6 +24,15 @@ export class MashbillGrainService {
         return this.http.post<IMashbillGrain>(this.resourceUrl, mashbillGrain, { observe: 'response' });
     }
 
+    createWithMashbill(mashbillGrain: IMashbillGrain): Observable<EntityResponseType> {
+        console.log(mashbillGrain.grain.grainName);
+        console.log(mashbillGrain.grain.id);
+        console.log(mashbillGrain.id);
+        console.log(mashbillGrain.quantity);
+        console.log(mashbillGrain.mashbill.id);
+        return this.http.post<IMashbillGrain>(`${this.resourceUrl}/hellYeah`, mashbillGrain, { observe: 'response' });
+    }
+
     update(mashbillGrain: IMashbillGrain): Observable<EntityResponseType> {
         return this.http.put<IMashbillGrain>(this.resourceUrl, mashbillGrain, { observe: 'response' });
     }

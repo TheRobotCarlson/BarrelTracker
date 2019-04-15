@@ -2,7 +2,9 @@ package co.therobotcarlson.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import co.therobotcarlson.domain.MashbillGrain;
+import co.therobotcarlson.domain.Mashbill;
 import co.therobotcarlson.repository.MashbillGrainRepository;
+import co.therobotcarlson.repository.MashbillRepository;
 import co.therobotcarlson.web.rest.errors.BadRequestAlertException;
 import co.therobotcarlson.web.rest.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -31,8 +33,11 @@ public class MashbillGrainResource {
 
     private final MashbillGrainRepository mashbillGrainRepository;
 
-    public MashbillGrainResource(MashbillGrainRepository mashbillGrainRepository) {
+    private final MashbillRepository mashbillRepository;
+
+    public MashbillGrainResource(MashbillGrainRepository mashbillGrainRepository, MashbillRepository mbr) {
         this.mashbillGrainRepository = mashbillGrainRepository;
+        this.mashbillRepository = mbr;
     }
 
     /**
@@ -50,6 +55,29 @@ public class MashbillGrainResource {
             throw new BadRequestAlertException("A new mashbillGrain cannot already have an ID", ENTITY_NAME, "idexists");
         }
         MashbillGrain result = mashbillGrainRepository.save(mashbillGrain);
+        return ResponseEntity.created(new URI("/api/mashbill-grains/" + result.getId()))
+            .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
+            .body(result);
+    }
+
+        /**
+     * POST  /mashbill-grains : Create a new mashbillGrain.
+     *
+     * @param mashbillGrain the mashbillGrain to create
+     * @return the ResponseEntity with status 201 (Created) and with body the new mashbillGrain, or with status 400 (Bad Request) if the mashbillGrain has already an ID
+     * @throws URISyntaxException if the Location URI syntax is incorrect
+     */
+    @PostMapping("/mashbill-grains/hellYeah")
+    @Timed
+    public ResponseEntity<MashbillGrain> createMashbillGrainHellYeah(@Valid @RequestBody MashbillGrain mashbillGrain) throws URISyntaxException {
+        
+        if (mashbillGrain.getId() != null) {
+            throw new BadRequestAlertException("A new mashbillGrain cannot already have an ID", ENTITY_NAME, "idexists");
+        }
+        Mashbill mb = mashbillRepository.findByMashbillName(mashbillGrain.getMashbill().getMashbillName());
+        mashbillGrain.setMashbill(mb);
+        MashbillGrain result = mashbillGrainRepository.save(mashbillGrain);
+        log.debug("REST request to save MashbillGrain with HELL YEAH : {}", mashbillGrain);
         return ResponseEntity.created(new URI("/api/mashbill-grains/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
             .body(result);

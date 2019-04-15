@@ -58,6 +58,7 @@ export class MashbillUpdateComponent implements OnInit {
 
     loadMashbill() {
         this.mashbillService.queryByName(this.mashbill.mashbillName).subscribe(resp => {
+            console.log('Hell yeah fucking right');
             console.log(resp);
             this.mashbill = resp;
         });
@@ -69,16 +70,16 @@ export class MashbillUpdateComponent implements OnInit {
             this.subscribeToSaveResponse(this.mashbillService.update(this.mashbill));
         } else {
             this.subscribeToSaveResponse(this.mashbillService.create(this.mashbill));
-            this.loadMashbill();
-            console.log('NEW INFO: ');
-            console.log(this.mashbill.mashbillName);
-            console.log(this.mashbill.id);
-            console.log('END OF NEW INFO');
+            // this.loadMashbill();
+            // console.log('NEW INFO: ');
+            // console.log(this.mashbill.mashbillName);
+            // console.log(this.mashbill.id);
+            // console.log('END OF NEW INFO');
             for (let entry of this.mbgs) {
                 entry.mashbill = this.mashbill;
                 console.log('ENTRY: ');
                 console.log(entry);
-                this.mbgSubscribeToSaveResponse(this.mashbillGrainService.create(entry));
+                this.mbgSubscribeToSaveResponse(this.mashbillGrainService.createWithMashbill(entry));
             }
         }
         this.previousState();
