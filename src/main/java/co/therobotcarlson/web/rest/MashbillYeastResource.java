@@ -2,6 +2,7 @@ package co.therobotcarlson.web.rest;
 
 import com.codahale.metrics.annotation.Timed;
 import co.therobotcarlson.domain.MashbillYeast;
+import co.therobotcarlson.domain.Mashbill;
 import co.therobotcarlson.repository.MashbillYeastRepository;
 import co.therobotcarlson.web.rest.errors.BadRequestAlertException;
 import co.therobotcarlson.web.rest.util.HeaderUtil;
@@ -10,6 +11,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import co.therobotcarlson.repository.MashbillRepository;
+
 
 import javax.validation.Valid;
 import java.net.URI;
@@ -30,10 +34,15 @@ public class MashbillYeastResource {
     private static final String ENTITY_NAME = "mashbillYeast";
 
     private final MashbillYeastRepository mashbillYeastRepository;
+    private final MashbillRepository mashbillRepository;
 
-    public MashbillYeastResource(MashbillYeastRepository mashbillYeastRepository) {
+
+    public MashbillYeastResource(MashbillYeastRepository mashbillYeastRepository, MashbillRepository mbr) {
         this.mashbillYeastRepository = mashbillYeastRepository;
+        this.mashbillRepository = mbr;
+
     }
+
 
     /**
      * POST  /mashbill-yeasts : Create a new mashbillYeast.
@@ -51,6 +60,29 @@ public class MashbillYeastResource {
         }
         MashbillYeast result = mashbillYeastRepository.save(mashbillYeast);
         return ResponseEntity.created(new URI("/api/mashbill-yeasts/" + result.getId()))
+            .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
+            .body(result);
+    }
+
+    /**
+     * POST  /mashbill-grains : Create a new mashbillGrain.
+     *
+     * @param mashbillYeast the mashbillGrain to create
+     * @return the ResponseEntity with status 201 (Created) and with body the new mashbillGrain, or with status 400 (Bad Request) if the mashbillGrain has already an ID
+     * @throws URISyntaxException if the Location URI syntax is incorrect
+     */
+    @PostMapping("/mashbill-yeasts/new-yeast")
+    @Timed
+    public ResponseEntity<MashbillYeast> createMashbillYeastWithMashbill(@Valid @RequestBody MashbillYeast mashbillYeast) throws URISyntaxException {
+        
+        if (mashbillYeast.getId() != null) {
+            throw new BadRequestAlertException("A new mashbillGrain cannot already have an ID", ENTITY_NAME, "idexists");
+        }
+        Mashbill mb = mashbillRepository.findByMashbillName(mashbillYeast.getMashbill().getMashbillName());
+        mashbillYeast.setMashbill(mb);
+        MashbillYeast result = mashbillYeastRepository.save(mashbillYeast);
+        log.debug("REST request to save MashbillGrain with  Mashbill : {}", mashbillYeast);
+        return ResponseEntity.created(new URI("/api/mashbill-grains/" + result.getId()))
             .headers(HeaderUtil.createEntityCreationAlert(ENTITY_NAME, result.getId().toString()))
             .body(result);
     }

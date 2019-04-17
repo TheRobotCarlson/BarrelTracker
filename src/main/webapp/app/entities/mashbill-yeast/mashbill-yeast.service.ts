@@ -15,6 +15,15 @@ export class MashbillYeastService {
 
     constructor(private http: HttpClient) {}
 
+    createWithMashbill(mashbillYeast: IMashbillYeast): Observable<EntityResponseType> {
+        console.log(mashbillYeast.yeast.yeastName);
+        console.log(mashbillYeast.yeast.id);
+        console.log(mashbillYeast.id);
+        console.log(mashbillYeast.quantity);
+        console.log(mashbillYeast.mashbill.id);
+        return this.http.post<IMashbillYeast>(`${this.resourceUrl}/new-yeast`, mashbillYeast, { observe: 'response' });
+    }
+
     create(mashbillYeast: IMashbillYeast): Observable<EntityResponseType> {
         return this.http.post<IMashbillYeast>(this.resourceUrl, mashbillYeast, { observe: 'response' });
     }

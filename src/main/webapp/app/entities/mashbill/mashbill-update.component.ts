@@ -10,7 +10,11 @@ import { MashbillService } from './mashbill.service';
 import { GrainService } from '../grain';
 import { IMashbillGrain, MashbillGrain } from 'app/shared/model/mashbill-grain.model';
 import { MashbillGrainService } from '../mashbill-grain/mashbill-grain.service';
+import { MashbillYeastService } from '../mashbill-yeast/mashbill-yeast.service';
 import { mashbillGrainPopupRoute } from '../mashbill-grain';
+import { IMashbillYeast, MashbillYeast } from 'app/shared/model/mashbill-yeast.model';
+import { IYeast } from 'app/shared/model/yeast.model';
+import { YeastService } from '../yeast';
 
 @Component({
     selector: 'jhi-mashbill-update',
@@ -19,17 +23,22 @@ import { mashbillGrainPopupRoute } from '../mashbill-grain';
 export class MashbillUpdateComponent implements OnInit {
     private _mashbill: IMashbill;
     private _mashbillGrain: IMashbillGrain;
+
     isSaving: boolean;
     mbgs = new Array<MashbillGrain>();
+    mbys = new Array<MashbillYeast>();
 
     grains: IGrain[];
+    yeasts: IYeast[];
 
     constructor(
         private mashbillService: MashbillService,
         private activatedRoute: ActivatedRoute,
         private grainService: GrainService,
+        private yeastService: YeastService,
         private jhiAlertService: JhiAlertService,
-        private mashbillGrainService: MashbillGrainService
+        private mashbillGrainService: MashbillGrainService,
+        private mashbillYeastService: MashbillYeastService
     ) {}
 
     ngOnInit() {
@@ -37,7 +46,8 @@ export class MashbillUpdateComponent implements OnInit {
         this.activatedRoute.data.subscribe(({ mashbill }) => {
             this.mashbill = mashbill;
         });
-        this.mbgs.push(new MashbillGrain());
+        // this.mbgs.push(new MashbillGrain());
+        // this.mbys.push(new MashbillYeast());
 
         this.activatedRoute.data.subscribe(({ mashbillGrain }) => {
             this.mashbillGrain = mashbillGrain;
@@ -48,6 +58,13 @@ export class MashbillUpdateComponent implements OnInit {
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
+        this.yeastService.query().subscribe(
+            (res: HttpResponse<IYeast[]>) => {
+                this.yeasts = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+
         console.log('Hello World!');
         //console.log(this.grains[0].grainName);
     }
@@ -58,7 +75,6 @@ export class MashbillUpdateComponent implements OnInit {
 
     loadMashbill() {
         this.mashbillService.queryByName(this.mashbill.mashbillName).subscribe(resp => {
-            console.log('Hell yeah fucking right');
             console.log(resp);
             this.mashbill = resp;
         });
@@ -70,19 +86,23 @@ export class MashbillUpdateComponent implements OnInit {
             this.subscribeToSaveResponse(this.mashbillService.update(this.mashbill));
         } else {
             this.subscribeToSaveResponse(this.mashbillService.create(this.mashbill));
-            // this.loadMashbill();
-            // console.log('NEW INFO: ');
-            // console.log(this.mashbill.mashbillName);
-            // console.log(this.mashbill.id);
-            // console.log('END OF NEW INFO');
             for (let entry of this.mbgs) {
                 entry.mashbill = this.mashbill;
                 console.log('ENTRY: ');
                 console.log(entry);
                 this.mbgSubscribeToSaveResponse(this.mashbillGrainService.createWithMashbill(entry));
             }
+
+            for (let entry of this.mbys) {
+                entry.mashbill = this.mashbill;
+                this.mbySubscriveToSaveResponse(this.mashbillYeastService.createWithMashbill(entry));
+            }
         }
         this.previousState();
+    }
+
+    private mbySubscriveToSaveResponse(result: Observable<HttpResponse<IMashbillYeast>>) {
+        result.subscribe((res: HttpResponse<IMashbillYeast>) => this.onMBYSaveSuccess(), (res: HttpErrorResponse) => this.onMBYSaveError());
     }
 
     private mbgSubscribeToSaveResponse(result: Observable<HttpResponse<IMashbillGrain>>) {
@@ -95,6 +115,14 @@ export class MashbillUpdateComponent implements OnInit {
 
     private onMBGSaveError() {
         console.log('New Mashbill Grain NOT Saved');
+    }
+
+    private onMBYSaveSuccess() {
+        console.log('New Mashbill Yeast Saved successfully');
+    }
+
+    private onMBYSaveError() {
+        console.log('New Mashbill Yeast NOT Saved');
     }
 
     private subscribeToSaveResponse(result: Observable<HttpResponse<IMashbill>>) {
@@ -119,8 +147,28 @@ export class MashbillUpdateComponent implements OnInit {
         return item.id;
     }
 
-    addRow() {
+    trackYeastById(index: number, item: IYeast) {
+        return item.id;
+    }
+
+    trackYeastByName(index: number, item: IYeast) {
+        return item.yeastName;
+    }
+
+    addGrain() {
+        console.log('Pre push: ');
+        for (let x of this.mbgs) {
+            console.log(x.grain);
+        }
         this.mbgs.push(new MashbillGrain());
+        console.log('Post push: ');
+        for (let x of this.mbgs) {
+            console.log(x.grain);
+        }
+    }
+
+    addYeast() {
+        this.mbys.push(new MashbillYeast());
     }
 
     get mashbill() {

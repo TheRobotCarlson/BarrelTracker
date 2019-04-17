@@ -30,7 +30,7 @@ export class MashbillGrainService {
         console.log(mashbillGrain.id);
         console.log(mashbillGrain.quantity);
         console.log(mashbillGrain.mashbill.id);
-        return this.http.post<IMashbillGrain>(`${this.resourceUrl}/hellYeah`, mashbillGrain, { observe: 'response' });
+        return this.http.post<IMashbillGrain>(`${this.resourceUrl}/new-grain`, mashbillGrain, { observe: 'response' });
     }
 
     update(mashbillGrain: IMashbillGrain): Observable<EntityResponseType> {

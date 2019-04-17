@@ -37,28 +37,55 @@
                     <input type="text" class="form-control" name="mashbillNotes" id="field_mashbillNotes"
                         [(ngModel)]="mashbill.mashbillNotes" />
                 </div>
-                <button type="button" id="addrow" class="btn btn-secondary" (click)="addRow()">
-                    <span>addRow</span>
+                <button type="button" id="addgrain" class="btn btn-secondary" (click)="addGrain()">
+                    <span>Add Grain</span>
                 </button>
-                <table>
+                <!-- <table>
+                    <tr>
+                        <td> </td>
+                        <td>Grain</td>
+                        <td>Quantity</td>
+                    </tr>
                     <tr *ngFor="let x of mbgs; let i = index;">
                         <td>{{i+1}}</td>
                         <td>
                             <select class="form-control" id="field_grain" name="grain" [(ngModel)]="x.grain">
                                 <option [ngValue]="null"></option>
-                                <option [ngValue]="grainOption.id === x.grain?.id ? x.grain : grainOption" *ngFor="let grainOption of grains; trackBy: trackGrainById">{{grainOption.grainName}}</option>
+                                <option [ngValue]="grainOption.grainName === x.grain?.grainName ? x.grain : grainOption" *ngFor="let grainOption of grains; trackBy: trackGrainById">{{grainOption.grainName}}</option>
                             </select>
                         </td>
                         <td><input name="IDK what I'm doing" [(ngModel)]="x.quantity"></td>
                     </tr>
-                </table>
-                <!-- <div class="form-group">
-                    <label class="form-control-label" for="field_grain">Grain</label>
-                    <select class="form-control" id="field_grain" name="grain" [(ngModel)]="mashbillGrain.grain" >
+                </table> -->
+                <div *ngFor="let x of mbgs; let i = index;">
+                    <select class="form-control" id="field_grain" name="grain" [(ngModel)]="x.grain">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="grainOption.id === mashbillGrain.grain?.id ? mashbillGrain.grain : grainOption" *ngFor="let grainOption of grains; trackBy: trackGrainById">{{grainOption.grainName}}</option>
+                        <option [ngValue]="grainOption" *ngFor="let grainOption of grains; trackBy: trackGrainById">{{grainOption.grainName}}</option>
                     </select>
-                </div> -->
+                </div>
+                <button type="button" id="addyeast" class="btn btn-secondary" (click)="addYeast()">
+                    <span>Add Yeast</span>
+                </button>
+                <table>
+                    <tr>
+                        <td></td>
+                        <td>Yeast</td>
+                        <td>Quantity</td>
+                    </tr>
+                    <tr *ngFor="let x of mbys; let i = index;">
+
+                        <td>{{i+1}}</td>
+                        <td>{{x.yeast.yeastName}}</td>
+                        <td>
+                            
+                            <select class="form-control" id="field_yeast" name="yeast" [(ngModel)]="x.yeast">
+                                <option [ngValue]="null"></option>
+                                <option [ngValue]="yeastOption.yeastName === x.yeast?.yeastName ? x.yeast.yeastName : yeastOption.yeastName" *ngFor="let yeastOption of yeasts; trackBy: trackYeastByName">{{yeastOption.yeastName}}</option>
+                            </select>
+                        </td>
+                        <td><input name="IDK what I'm doing" placeholder="{{x.quantity}}" [(ngModel)]="x.quantity"></td>
+                    </tr>
+                </table>
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
