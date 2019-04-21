@@ -9,6 +9,8 @@ date: 2019-04-21T12:00:00.000Z
 Finishing up these posts with reflections on how this semester and this project have gone with a final update from our client and lessons learned.
 
 1. [Changing requirements]()
+	1. [The Barrel Tracker]()
+    1. [Technically still tracking barrels?]()
 1. [Starting over vs fixing what's broken]()
 1. [Keeping the endgame in mind]()
 1. [Final Meeting with our client]()
@@ -29,9 +31,9 @@ At that time the biggest pain point mentioned was tracking barrels. Barrels get 
 
 During the first meeting with our client, we established the real issue: all business operations were ran out of an intricately connected set of Excel spreadsheets on network drives. This system was slow, not very intuitive, not very fault tolerant, and clunky to use. Our client used Excel for everything from keeping inventory in warehouses to the production schedule that led directly to purchase orders. An error in these sheets could lead to orders being incorrectly filled.
 
-Talking with our client clarified a bit what he expected a replacement to look like. It should be highly available (online), intuitive (well labeled and organized), and expandable (have an api). The proposed system was sort of like the "data hub" for something that could later be expanded to connect to more services later.
+Talking with our client clarified a bit what he expected a replacement to look like. It should be highly available (online), intuitive (well labeled and organized), and expandable (have an api). The proposed system was sort of like the "data hub" for something that could later be expanded to connect to more services later. We decided this fit the bill of an "Enterprise Resource Planner" or "ERP" for short. An ERP allows a company to schedule things that are going to be produced and see the resources they'll need for it in the future. 
 
-The proposed solution was an "Enterprise Resource Planner" or "ERP" for short. An ERP allows a company to schedule things that are going to be produced and see the resources they'll need for it in the future.
+Technically, we're still tracking barrels in this system, just digitally instead of physically as we had originally anticipated.
 
 
 ### Final Meeting with our client
