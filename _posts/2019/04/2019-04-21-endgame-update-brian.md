@@ -11,7 +11,9 @@ Finishing up these posts with reflections on how this semester and this project 
 1. [Changing requirements](#changing-requirements)
 	1. [The Barrel Tracker](#the-barrel-tracker)
     1. [Technically still tracking barrels?](#technically-still-tracking-barrels)
-1. [Starting over vs fixing what's broken]()
+1. [Technicalities](#technicalities)
+	1. [Expectations vs Reality](#expectations-vs-reality)
+	1. [Starting over vs fixing what's broken](#starting-over-vs-fixing-whats-broken)
 1. [Keeping the endgame in mind]()
 1. [Final Meeting with our client]()
 1. [Reflections and Lessons learned]()
@@ -35,7 +37,22 @@ Talking with our client clarified a bit what he expected a replacement to look l
 
 Technically, we're still tracking barrels in this system, just digitally instead of physically as we had originally anticipated.
 
+## Technicalities
 
-### Final Meeting with our client
+This ended up being a relatively interesting project technology-wise. We had a complex, production-grade, feature-rich, scalable tech stack. Going into the project, we didn't know much about any of the technologies we used. It's very fun learning new things and learning what tools work best for the job at hand. But learning like that that comes at a cost of productivity. Assumptions were made that later turned out to be wrong. Lots of code changes were just undoing previous code changes. Such is life. 
+
+### Expectations Vs Reality
+Just like real life, the expectations we set for this project were different than how things turned out. I had found this awesome code scaffolding tool called [JHipster](https://jhipster.tech) and I had anticipated using it being a breeze to generate boring, repetitive code and infrastructure and focus on the meat of the application: the business logic. Half of that was actually the case. We could use it to generate some of the infrastructure pieces and some of the frontend components that get repeated across projects... but it wasn't a breeze in the slightest.
+
+What JHipster aims to do is huge. It does a lot and goes through changes rapidly. During the course of this project it went from JHipster 5.8.0 to 5.8.2, that's a quick change process. This means that a lot of features and bugs are documented incorrectly or not at all. I had to hunt through 100 pages of Github issues and Stackoverflow questions when I had problems. There was a huge learning curve to understanding the framework. I did a lot of things wrong that I had to undo, redo, and just leave broken. But I learned how to use the framework.
+
+Now, I feel confident that if I started this project from scratch, I could get to where I am now in under 30 hours of work. Which brings me to my next point:
+
+
+### Starting over vs fixing what's broken
+
+
+
+## Final Meeting with our client
 Going into the final meeting with client, I was a little concerned. Our team had been pretty busy for most of this semester and didn't have as much time to work on the project as we would have liked. I was organizing CatHacks, a month of workshops, and doing interviews, Clay was looking for where he was going to be living after college and had to travel for work, and Thomas had hard classes and the solar car software team to lead. There were only one or two weeks where we were all available to meet at once
 
