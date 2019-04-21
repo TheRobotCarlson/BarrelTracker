@@ -2,7 +2,7 @@
 published: true
 layout: article
 title: Documentation Notes over the last 2 months - Clay
-date: {}
+date: 2019-04-21T12:00:00.000Z
 ---
 ## Clay Chaffins 04/21/2019 Notes on the synthesis of  Claymore Architecture Assignment - Clay
 
@@ -90,12 +90,4 @@ After introducing our solution, our plan is to discuss our final architecture us
 After discussing the technologies used, our plan to spend the bulk of our presentation doing a live demo. This live demo will be of our production ready environment which is hosted on the cloud has the newest requests implemented. We plan to walk through it very similarly to how we did with Shane with a few small tweaks – we will walk through how to login, add data to the configuration tables, and then create mashbills and production schedules. The major difference this time is that we will make it a priority to showcase the newest features to the app including the aggregate totals, date defaults, and the auto-generated schedule order. 
 
 After the live demo, we will discuss the front-end testing, back-end testing, defects, and metrics. 
-We will conclude by talking about the lessons we have learned along this journey of delivering an ERP system and giving 3 key takeaways. 
-
-
-
-
-
-
-
-
+We will conclude by talking about the lessons we have learned along this journey of delivering an ERP system and giving 3 key takeaways.
