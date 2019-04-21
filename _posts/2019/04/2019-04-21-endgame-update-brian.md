@@ -8,9 +8,9 @@ date: 2019-04-21T12:00:00.000Z
 
 Finishing up these posts with reflections on how this semester and this project have gone with a final update from our client and lessons learned.
 
-1. [Changing requirements]()
-	1. [The Barrel Tracker]()
-    1. [Technically still tracking barrels?]()
+1. [Changing requirements](#changing-requirements)
+	1. [The Barrel Tracker](#the-barrel-tracker)
+    1. [Technically still tracking barrels?](#technically-still-tracking-barrels)
 1. [Starting over vs fixing what's broken]()
 1. [Keeping the endgame in mind]()
 1. [Final Meeting with our client]()
