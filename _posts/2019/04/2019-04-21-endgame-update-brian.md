@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 layout: article
 title: Endgame Update - Brian
 date: 2019-04-21T12:00:00.000Z
