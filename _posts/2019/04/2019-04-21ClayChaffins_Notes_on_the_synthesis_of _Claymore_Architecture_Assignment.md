@@ -16,7 +16,7 @@ The idea here is that upon using the web app for the fist time, the user would f
 
 In order to test this functionality, we made sure that when the configuration tables are populated, we received data in the LOVs. We also tested to make sure that all configuration tables are able to be populated. 
 
-For the Batch screen, we made sure that user is successfully able to request a list of batches. We also tested the filter functionality so that when a user uses a query to search for a specific item, the search results that are returned are valid. We also tested that when a user adds a new batch, edits an existing batch, or deletes an existing batch, that data cascade deletes where necessary and all foreign key constraints respond appropriately. 
+For the Batch page, we made sure that user is successfully able to request a list of batches. We also tested the filter functionality so that when a user uses a query to search for a specific item, the search results that are returned are valid. We also tested that when a user adds a new batch, edits an existing batch, or deletes an existing batch, that data cascade deletes where necessary and all foreign key constraints respond appropriately. 
 
 
 The metrics we originally came up with included: 
