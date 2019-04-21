@@ -17,11 +17,13 @@ Finishing up these posts with reflections on how this semester and this project 
 
 ## Changing requirements 
 (or at least our understanding of them)
+
 Before the semester started I toyed with the idea of bringing in my own senior project. I had been talking to a distillery about automating their process and some of the pain points that I could help relieve some stress around. 
 
 ### The Barrel Tracker
 
-	At that time the biggest pain point mentioned was tracking barrels. Barrels get moved around between when they're initially placed in the warehouse and when they're ready to be bottled. They didn't have a good system in place for recording these movements, however, leading to a lot of headache searching for barrels and potential product loss if barrels break in the moving process. This was the project that I introduced for senior design, but not the one that we ended up doing.
+At that time the biggest pain point mentioned was tracking barrels. Barrels get moved around between when they're initially placed in the warehouse and when they're ready to be bottled. They didn't have a good system in place for recording these movements, however, leading to a lot of headache searching for barrels and potential product loss if barrels break in the moving process. This was the project that I introduced for senior design, but not the one that we ended up doing.
+    
 
 ### Technically still tracking barrels?
 	
