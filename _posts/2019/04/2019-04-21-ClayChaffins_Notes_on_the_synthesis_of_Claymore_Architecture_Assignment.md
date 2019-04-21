@@ -1,8 +1,8 @@
 ---
 published: true
 layout: article
-title: Notes on the synthesis of Claymore Architecture Assignment
-date: 2019-04-21T12:01:00.000Z
+title: Notes on the synthesis of Claymore Architecture Assignment - Clay
+date: {}
 ---
 ## Clay Chaffins 04/21/2019 Notes on the synthesis of  Claymore Architecture Assignment
 
