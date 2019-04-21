@@ -11,7 +11,7 @@ Finishing up these posts with reflections on how this semester and this project 
 1. [Changing requirements]()
 1. [Starting over vs fixing what's broken]()
 1. [Keeping the endgame in mind]()
-1. [Final Meeting with Shane]()
+1. [Final Meeting with our client]()
 1. [Reflections and Lessons learned]()
 
 
@@ -26,9 +26,14 @@ At that time the biggest pain point mentioned was tracking barrels. Barrels get 
     
 
 ### Technically still tracking barrels?
-	
+
+During the first meeting with our client, we established the real issue: all business operations were ran out of an intricately connected set of Excel spreadsheets on network drives. This system was slow, not very intuitive, not very fault tolerant, and clunky to use. Our client used Excel for everything from keeping inventory in warehouses to the production schedule that led directly to purchase orders. An error in these sheets could lead to orders being incorrectly filled.
+
+Talking with our client clarified a bit what he expected a replacement to look like. It should be highly available (online), intuitive (well labeled and organized), and expandable (have an api). The proposed system was sort of like the "data hub" for something that could later be expanded to connect to more services later.
+
+The proposed solution was an "Enterprise Resource Planner" or "ERP" for short. An ERP allows a company to schedule things that are going to be produced and see the resources they'll need for it in the future.
 
 
-### Final Meeting with Shane
-Going into the final meeting with Shane, I was a little concerned. Our team had been pretty busy for most of this semester and didn't have as much time to work on the project as we would have liked. I was organizing CatHacks, a month of workshops, and doing interviews, Clay was looking for where he was going to be living after college and had to travel for work, and Thomas had hard classes and the solar car software team to lead. There were only one or two weeks where we were all available to meet at once
+### Final Meeting with our client
+Going into the final meeting with client, I was a little concerned. Our team had been pretty busy for most of this semester and didn't have as much time to work on the project as we would have liked. I was organizing CatHacks, a month of workshops, and doing interviews, Clay was looking for where he was going to be living after college and had to travel for work, and Thomas had hard classes and the solar car software team to lead. There were only one or two weeks where we were all available to meet at once
 
