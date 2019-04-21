@@ -4,7 +4,7 @@ layout: article
 title: Notes on the synthesis of Claymore Architecture Assignment - Clay
 date: {}
 ---
-## Clay Chaffins 04/21/2019 Notes on the synthesis of  Claymore Architecture Assignment
+## Clay Chaffins 04/21/2019 Notes on the synthesis of  Claymore Architecture Assignment - Clay
 
 Thomas, Brian, and myself met to discuss how we wanted to present the architecture assignment, the slides we wanted to include, and the scope of the presentation. Our first slide was a summary slide on the Grain Forecast and Yeast Summary. We decided that we wanted to display graphs and tables and then give a general overview of what we have accomplished so far. 
 
