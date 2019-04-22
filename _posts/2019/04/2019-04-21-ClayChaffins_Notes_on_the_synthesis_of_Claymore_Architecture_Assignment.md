@@ -2,7 +2,7 @@
 published: true
 layout: article
 title: Documentation Notes over the last 2 months - Clay
-date: 2019-04-21T12:00:00.000Z
+date: {}
 ---
 ## Clay Chaffins 04/21/2019 Notes on the synthesis of  Claymore Architecture Assignment - Clay
 
@@ -91,3 +91,5 @@ After discussing the technologies used, our plan to spend the bulk of our presen
 
 After the live demo, we will discuss the front-end testing, back-end testing, defects, and metrics. 
 We will conclude by talking about the lessons we have learned along this journey of delivering an ERP system and giving 3 key takeaways.
+
+Total wordcount to date: 2904 (existing) + 1700 (new) = 4604 words total
