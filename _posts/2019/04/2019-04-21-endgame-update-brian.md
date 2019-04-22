@@ -14,7 +14,6 @@ Finishing up these posts with reflections on how this semester and this project 
 1. [Technicalities](#technicalities)
 	1. [Expectations vs Reality](#expectations-vs-reality)
 	1. [Starting over vs fixing what's broken](#starting-over-vs-fixing-whats-broken)
-1. [Keeping the endgame in mind]()
 1. [Final Meeting with our client]()
 1. [Reflections and Lessons learned]()
 
@@ -50,7 +49,9 @@ Now, I feel confident that if I started this project from scratch, I could get t
 
 
 ### Starting over vs fixing what's broken
+I have a tendency towards perfectionism. I want everything to be clean, well structured, optimized, and future-proof. This doesn't mesh well with productivity. In the real world, you're often given projects that have flaws, aren't perfectly built, and are super messy. In the beginning stages of projects, it's a lot easier to make the decision to start over from scratch to fix all of the tech debt that you've built up. As the project progresses and new features are added, eventually you just have to bite the bullet and move forward in the project, flaws and all. 
 
+This was a problem we faced. Everytime our data model changed, rather than modify our existing code and database to match, I would re-generate the project around that new model. This helped prevent the need for clean-up or changes to our databases and elasticsearch, but it meant that we were back to square one with our business logic with the only carry-over being our lessons learned. 
 
 
 ## Final Meeting with our client
