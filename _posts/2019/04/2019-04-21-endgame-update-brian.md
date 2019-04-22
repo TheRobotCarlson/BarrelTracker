@@ -53,7 +53,15 @@ I have a tendency towards perfectionism. I want everything to be clean, well str
 
 This was a problem we faced. Everytime our data model changed, rather than modify our existing code and database to match, I would re-generate the project around that new model. This helped prevent the need for clean-up or changes to our databases and elasticsearch, but it meant that we were back to square one with our business logic with the only carry-over being our lessons learned. 
 
+Eventually, we decided to move forward with our base code and not change the underlying schema until _after_ the presentation, instead documenting the proposed changes for future releases. I think this was a healthy compromise that allowed us to both deliver and set ourselves up for future improvement.
+
 
 ## Final Meeting with our client
-Going into the final meeting with client, I was a little concerned. Our team had been pretty busy for most of this semester and didn't have as much time to work on the project as we would have liked. I was organizing CatHacks, a month of workshops, and doing interviews, Clay was looking for where he was going to be living after college and had to travel for work, and Thomas had hard classes and the solar car software team to lead. There were only one or two weeks where we were all available to meet at once
+Going into the final meeting with the client, I was a little concerned. Our team had been pretty busy for most of this semester and didn't have as much time to work on the project as we would have liked. I was organizing CatHacks, a month of workshops, and doing interviews, Clay was looking for where he was going to be living after college and had to travel for work, and Thomas had hard classes and the solar car software team to lead. There were only one or two weeks where we were all available to meet at once.
+
+On the call, we showed the features that we had been working on. We showed our careful analysis of the Excel sheet he had given us as a reference, we showed how you could use what we've made to interact with other tools, and how it was hosted on the cloud and was made such that you could even use it on a phone. But there were a lot of things that he asked about that we didn't have or didn't have in a form that was demo-able. 
+
+To our surprise, he said he was impressed and liked what we had made so far. He thought the interface was intuitive and easy to use and he saw how our project could act as that central "data hub" that he had been looking for. Of course there were plenty of suggestions for improvements and features, but all in all, he was pleased with what we had made. 
+
+Moving forward, we plan to continue working on this project to learn and develop a better idea of how to quickly made industry-grade SaaS tools.
 
